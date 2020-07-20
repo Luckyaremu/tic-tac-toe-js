@@ -3,31 +3,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript tic tac toe</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/assets/style/style.css">
 </head>
 <body>
     <div>
-        <h1 class="title">tic tac tao </h1>
+        <h1 class="title">tic tac toe </h1>
+
+        <div class="form-inputs">
+            <h6 class="form-input">Enter Player names</h6>
+            <form class="name-form">
+                <input type="text" class="input-field" name="inputspace" placeholder="Enter Player Name">
+                <input type="submit" class="input-btn" name="submitbtn" id="submitName">
+            </form>
+            
+        </div>
         <div>
+            <h5 class="errors"></h5>
             <table class="table-container" >
                 <tr>
-                  <td value="1"></td>
-                  <td value="2"></td>
-                  <td value="3"></td>
+                  <td id="1"></td>
+                  <td id="2"></td>
+                  <td id="3"></td>
                 </tr>
                 <tr>
-                  <td value="4"></td>
-                  <td value="5"></td>
-                  <td value="6"></td>
+                  <td id="4"></td>
+                  <td id="5"></td>
+                  <td id="6"></td>
                 </tr>
                 <tr>
-                    <td value="7"></td>
-                    <td value="8"></td>
-                    <td value="9"></td>
+                    <td id="7"></td>
+                    <td id="8"></td>
+                    <td id="9"></td>
                   </tr>
               </table>
         </div>
         </div>
     </div>
+    <script src="./assets/script/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,49 @@
+td {
+    border: 1px solid;
+    padding: 30px;
+    cursor: pointer;
+}
+
+.table-container {
+ max-width: 600px;
+ margin:20px auto;
+}
+
+.title {
+    text-align: center;
+    padding-bottom: 50px;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.form-inputs {
+    max-width: 600px;
+    margin: 40px auto;
+    font-size: 30px;
+}
+
+input {
+    padding: 13px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.input-btn{
+    font-size: 15px;
+    cursor: pointer;
+    background: linear-gradient(95deg, white, blue);
+    color: white;
+}
+
+input.input-field {
+    border-bottom: .5px solid lightgrey;
+}
+.input-btn:hover {
+    background: linear-gradient(45deg, black, transparent);
+}
+
+.name-form{
+    display: flex;
+    flex-direction: column;
+}
