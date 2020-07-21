@@ -40,6 +40,9 @@ li {
     font-size: 40px;
     text-transform: uppercase;
 }
+.text-center{
+    text-align: center;
+}
 
 .card {
     text-align: center;
@@ -81,6 +84,17 @@ input {
     border: none;
 }
 
+.btn{
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 5px;
+    transition: all 1s;
+}
+
+.btn-default{
+    border: 1px solid royalblue;
+}
+
 .input-btn, .restart-btn{
     font-size: 15px;
     cursor: pointer;
@@ -90,8 +104,9 @@ input {
 
 input.input-field {
     border-bottom: .5px solid lightgrey;
+    margin-bottom: 40px;
 }
-.input-btn:hover, .restart-btn:hover {
+.input-btn:hover, .restart-btn:hover, .btn-default:hover {
     background: linear-gradient(45deg, hsla(230,84%,53%,1), #fd5f60);
     color: white;
 }

@@ -7,6 +7,10 @@ const cards = document.querySelector('.card');
 const content = document.querySelector('.content');
 const formInput = document.querySelector('.form-inputs');
 const playerlist = document.querySelector('.playerlist');
+const playerturn = document.querySelector('.playerturn');
+const aibtn = document.querySelector('.ai');
+let ai = false;
+
 
 
 let cellFull = false;
@@ -27,9 +31,47 @@ function playerTurn(all_player){
     return player;
 }
 
+aibtn.addEventListener('click', function(){
+    form.inputspace.value = "AI";
+})
+
+function playGame(){
+    if(counter <= 1){
+      
+        if(counter == 0){
+        marker = "X"
+        aibtn.classList.remove('d-none');
+        }else{
+        marker = "0"
+        if(form.inputspace.value === "AI"){
+            ai=true;
+        }
+        }
+        players = new Player(`${form.inputspace.value}`, marker);
+        counter++;
+
+
+
+        all_player.push(players);
+        let node = document.createElement('LI');
+        node.innerText = `${players.name}`
+        playerlist.appendChild(node);
+        playerlist.classList.remove('d-none')
+        form.inputspace.value = ""
+        if(counter >= 2){
+            formInput.classList.add('d-none');
+            table.classList.remove('d-none')
+        }
+    }else{
+        errors.innerText = "Maximum number of users reached!"
+    }
+}
+
 table.addEventListener('click', function(e){
     playerTurn(all_player);
+    playerturn.innerHTML = `${player.name} Turn!`
     e.target.innerText = player.marker;
+  
     player.history.push(e.target.id) ;
     
     if (checkWin(winArray, player)){
@@ -46,29 +88,7 @@ table.addEventListener('click', function(e){
 
 form.submitbtn.addEventListener('click', function(e){
     e.preventDefault();
-    if(counter <= 1){
-     
-        if(counter == 0){
-        marker = "X"
-        }else{
-        marker = "0"
-        }
-        players = new Player(`${form.inputspace.value}`, marker);
-        counter++;
-
-        all_player.push(players);
-        let node = document.createElement('LI');
-        node.innerText = `${players.name}`
-        playerlist.appendChild(node);
-        playerlist.classList.remove('d-none')
-        form.inputspace.value = ""
-        if(counter >= 2){
-            formInput.classList.add('d-none');
-            table.classList.remove('d-none')
-        }
-    }else{
-        errors.innerText = "Maximum number of users reached!"
-    }
+    playGame();
    
 });
 
