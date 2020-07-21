@@ -6,6 +6,7 @@ const messages = document.querySelector('.messages');
 const cards = document.querySelector('.card');
 const content = document.querySelector('.content');
 const formInput = document.querySelector('.form-inputs');
+const playerlist = document.querySelector('.playerlist');
 
 
 let cellFull = false;
@@ -55,7 +56,11 @@ form.submitbtn.addEventListener('click', function(e){
         players = new Player(`${form.inputspace.value}`, marker);
         counter++;
 
-        all_player.push(players)
+        all_player.push(players);
+        let node = document.createElement('LI');
+        node.innerText = `${players.name}`
+        playerlist.appendChild(node);
+        playerlist.classList.remove('d-none')
         form.inputspace.value = ""
         if(counter >= 2){
             formInput.classList.add('d-none');

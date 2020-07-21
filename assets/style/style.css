@@ -9,6 +9,26 @@ td {
     cursor: pointer;
 }
 
+.playerlist {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.players {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+li {
+    list-style: none;
+    padding: 20px;
+    font-size: 20px;
+    border: 1px solid royalblue;
+    border-radius: 5px;
+}
+
 .table-container {
  max-width: 600px;
  margin:20px auto;
