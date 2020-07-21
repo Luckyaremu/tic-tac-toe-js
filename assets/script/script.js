@@ -35,8 +35,9 @@ table.addEventListener('click', function(e){
        
         messages.innerText = `Wow! ${player.name} has won!`
         cards.classList.remove('d-none');
+        content.classList.remove("d-none")
         content.classList.add('bg-blur');
-        console.log(cellFull) 
+        
     }else if(cellFull == true){
         messages.innerText = "Well, It looks like it is a tie!"
     }
