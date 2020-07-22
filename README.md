@@ -30,7 +30,7 @@ Where Users can:
 
 #  Screenshot
 ![screenshot](./assets/image/screenshot.jpg)
-)
+
 
 # Live Demo
 [Live Demo Link](https://angry-borg-90b651.netlify.app/)
