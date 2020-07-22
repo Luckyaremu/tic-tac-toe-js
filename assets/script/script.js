@@ -3,7 +3,7 @@ import Player from './player.js';
 const table = document.querySelector('.table-container');
 const form = document.querySelector('.name-form');
 const errors = document.querySelector('.errors');
-const all_player = [];
+const allplayer = [];
 const messages = document.querySelector('.messages');
 const cards = document.querySelector('.card');
 const content = document.querySelector('.content');
@@ -14,7 +14,7 @@ const aibtn = document.querySelector('.ai');
 let ai = false;
 let marker = 'X';
 let players = '';
-let player = all_player[0];
+let player = allplayer[0];
 
 let cellFull = false;
 let tie = false;
@@ -23,8 +23,8 @@ const winArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 
 let playerCount = 1;
 
 
-function playerTurn(all_player) {
-  playerCount % 2 === 0 ? player = all_player[0] : player = all_player[1];
+function playerTurn(allplayer) {
+  playerCount % 2 === 0 ? player = allplayer[0] : player = allplayer[1];
   playerCount++;
 
   if (playerCount == 10) {
@@ -54,7 +54,7 @@ function setPlayers() {
 
 function playGame() {
   setPlayers();
-  all_player.push(players);
+  allplayer.push(players);
   const node = document.createElement('LI');
   node.innerText = `${players.name}`;
   playerlist.appendChild(node);
@@ -63,7 +63,7 @@ function playGame() {
   if (counter >= 2) {
     formInput.classList.add('d-none');
     table.classList.remove('d-none');
-    playerturn.innerHTML = `${all_player[0].name} Turn!`;
+    playerturn.innerHTML = `${allplayer[0].name} Turn!`;
   }
 }
 
@@ -72,7 +72,7 @@ table.addEventListener('click', (e) => {
     errors.classList.remove('d-none');
     errors.innerText = 'That position is taken!';
   } else {
-    player = playerTurn(all_player);
+    player = playerTurn(allplayer);
     errors.classList.add('d-none');
     e.target.innerText = player.marker;
     e.target.classList.add('clicked');
