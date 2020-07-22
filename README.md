@@ -19,7 +19,7 @@
 
 # javascript Tic tac toe
 
-> In this project, we built a game call tic tac toe. 
+> In this project, we built a game called TIC TAC TOE. 
 Where Users can:
 
 - Introduce the name of the players.
@@ -29,7 +29,7 @@ Where Users can:
 - When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie
 
 #  Screenshot
-![screenshot](./screenshot\Untitled.jpg)
+![screenshot](.\screenshot\Untitled.jpg)
 )
 
 # Live Demo
