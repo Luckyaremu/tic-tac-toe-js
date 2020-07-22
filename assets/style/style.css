@@ -1,3 +1,8 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 td {
     border: 1px solid;
     padding: 30px;
@@ -16,10 +21,33 @@ td {
     text-transform: uppercase;
 }
 
+.card {
+    text-align: center;
+    padding: 20px;
+    background: lightgreen;
+    border-radius: 10px;
+    max-width: 600px;
+    min-width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 100;
+}
+.bg-blur{
+    background: #0000006e;
+    height: 100vh;
+}
+
 .form-inputs {
     max-width: 600px;
     margin: 40px auto;
     font-size: 30px;
+    text-align: center;
+}
+
+.content {
+    margin: 30px 0;
 }
 
 input {
@@ -29,21 +57,32 @@ input {
     border: none;
 }
 
-.input-btn{
+.input-btn, .restart-btn{
     font-size: 15px;
     cursor: pointer;
-    background: linear-gradient(95deg, white, blue);
-    color: white;
+    border: 1px solid royalblue;
+    transition: all 1s;
 }
 
 input.input-field {
     border-bottom: .5px solid lightgrey;
 }
-.input-btn:hover {
-    background: linear-gradient(45deg, black, transparent);
+.input-btn:hover, .restart-btn:hover {
+    background: linear-gradient(45deg, hsla(230,84%,53%,1), #fd5f60);
+    color: white;
 }
+
+
 
 .name-form{
     display: flex;
     flex-direction: column;
+}
+
+.d-none{
+    display: none;
+}
+
+.d-block{
+    display: block;
 }
