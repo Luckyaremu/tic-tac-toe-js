@@ -9,6 +9,31 @@ td {
     cursor: pointer;
 }
 
+.playerlist {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.players {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.errors{
+    text-align: center;
+    color: red;
+}
+
+li {
+    list-style: none;
+    padding: 20px;
+    font-size: 20px;
+    border: 1px solid royalblue;
+    border-radius: 5px;
+}
+
 .table-container {
  max-width: 600px;
  margin:20px auto;
@@ -19,6 +44,9 @@ td {
     padding-bottom: 50px;
     font-size: 40px;
     text-transform: uppercase;
+}
+.text-center{
+    text-align: center;
 }
 
 .card {
@@ -47,7 +75,11 @@ td {
 }
 
 .content {
-    margin: 30px 0;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
 }
 
 input {
@@ -55,6 +87,17 @@ input {
     margin-bottom: 10px;
     border-radius: 5px;
     border: none;
+}
+
+.btn{
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 5px;
+    transition: all 1s;
+}
+
+.btn-default{
+    border: 1px solid royalblue;
 }
 
 .input-btn, .restart-btn{
@@ -66,8 +109,9 @@ input {
 
 input.input-field {
     border-bottom: .5px solid lightgrey;
+    margin-bottom: 40px;
 }
-.input-btn:hover, .restart-btn:hover {
+.input-btn:hover, .restart-btn:hover, .btn-default:hover {
     background: linear-gradient(45deg, hsla(230,84%,53%,1), #fd5f60);
     color: white;
 }
