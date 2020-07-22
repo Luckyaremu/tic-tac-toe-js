@@ -29,7 +29,7 @@ Where Users can:
 - When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie
 
 #  Screenshot
-![screenshot](.\screenshot\Untitled.jpg)
+![screenshot](./assets/image/screenshot.jpg)
 )
 
 # Live Demo
