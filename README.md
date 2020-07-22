@@ -43,7 +43,7 @@ Where Users can:
 
 ### Usage
 
-- Click the Live Demo link and enjoy our website.
+- Created a AI to play with.
 
 ### Prerequisites
 
