@@ -11,10 +11,14 @@ const formInput = document.querySelector('.form-inputs');
 const playerlist = document.querySelector('.playerlist');
 const playerturn = document.querySelector('.playerturn');
 const aibtn = document.querySelector('.ai');
+const tds = document.querySelectorAll('td');
+let emptySpots = [];
 let ai = false;
 let marker = 'X';
 let players = '';
 let player = allplayer[0];
+
+let pos = 0;
 
 let cellFull = false;
 let tie = false;
@@ -68,6 +72,7 @@ function setPlayers() {
   }
 }
 
+
 function playGame() {
   setPlayers();
   allplayer.push(players);
@@ -93,6 +98,17 @@ table.addEventListener('click', (e) => {
     e.target.innerText = player.marker;
     e.target.classList.add('clicked');
 
+
+    emptySpots = [];
+
+    tds.forEach((item) => {
+      if (item.innerText === '') {
+        emptySpots.push(item.id);
+      }
+    });
+
+    pos = parseInt(emptySpots[0]);
+
     playerturn.innerHTML = `${player.name} Turn!`;
 
     player.history.push(e.target.id);
@@ -106,9 +122,19 @@ table.addEventListener('click', (e) => {
       spitResult(message);
     }
   }
+  if (ai && player.name === 'AI' && !checkWin(winArray, player)) {
+    clickPos(document.getElementById(pos), 'click');
+  }
 });
 
 form.submitbtn.addEventListener('click', (e) => {
   e.preventDefault();
   playGame();
 });
+
+
+function clickPos(pos, etype) {
+  const evObj = document.createEvent('Events');
+  evObj.initEvent(etype, true, false);
+  return pos.dispatchEvent(evObj);
+}
