@@ -1,3 +1,6 @@
+/* eslint-disable import/extensions */
+/* eslint-disable  no-unused-expressions */
+/* eslint-disable  prefer-destructuring */
 import Player, { checkWin, winArray } from './player.js';
 
 const table = document.querySelector('.table-container');
@@ -33,6 +36,12 @@ function spitResult(message) {
   cards.classList.remove('d-none');
   content.classList.remove('d-none');
   content.classList.add('bg-blur');
+}
+
+function clickPos(pos, etype) {
+  const evObj = document.createEvent('Events');
+  evObj.initEvent(etype, true, false);
+  return pos.dispatchEvent(evObj);
 }
 
 
@@ -107,7 +116,7 @@ table.addEventListener('click', (e) => {
       }
     });
 
-    pos = parseInt(emptySpots[0]);
+    pos = parseInt(emptySpots[0], 10);
 
     playerturn.innerHTML = `${player.name} Turn!`;
 
@@ -132,9 +141,6 @@ form.submitbtn.addEventListener('click', (e) => {
   playGame();
 });
 
-
-function clickPos(pos, etype) {
-  const evObj = document.createEvent('Events');
-  evObj.initEvent(etype, true, false);
-  return pos.dispatchEvent(evObj);
-}
+/* eslint-enable import/extensions */
+/* eslint-enable  no-unused-expressions */
+/* eslint-enable  prefer-destructuring */
