@@ -11,14 +11,14 @@ const playerturn = document.querySelector('.playerturn');
 const aibtn = document.querySelector('.ai');
 let ai = false;
 
-
+let player = all_player[0];
 
 let cellFull = false;
 let tie = false;
 let counter = 0;
 let winArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]];
-let playerCount = 0;
-let player = all_player[0];
+let playerCount = 1;
+
 
 
 function playerTurn(all_player){
@@ -26,7 +26,7 @@ function playerTurn(all_player){
     playerCount % 2 ===0 ? player = all_player[0] : player = all_player[1];
     playerCount++;
        
-    if(playerCount == 9){
+    if(playerCount == 10){
         cellFull =true;
     }
     return player;
@@ -36,23 +36,24 @@ aibtn.addEventListener('click', function(){
     form.inputspace.value = "AI";
 })
 
-function playGame(){
+function setPlayers(){
     if(counter <= 1){
-      
         if(counter == 0){
         marker = "X"
         aibtn.classList.remove('d-none');
         }else{
         marker = "0"
-        if(form.inputspace.value === "AI"){
-            ai=true;
-        }
+            if(form.inputspace.value === "AI"){
+                ai=true;
+            }
         }
         players = new Player(`${form.inputspace.value}`, marker);
         counter++;
+    }
+}
 
-
-
+function playGame(){
+        setPlayers();
         all_player.push(players);
         let node = document.createElement('LI');
         node.innerText = `${players.name}`
@@ -61,10 +62,8 @@ function playGame(){
         form.inputspace.value = ""
         if(counter >= 2){
             formInput.classList.add('d-none');
-            table.classList.remove('d-none')
-        }
-    }else{
-        errors.innerText = "Maximum number of users reached!"
+            table.classList.remove('d-none');
+            playerturn.innerHTML = `${all_player[0].name} Turn!`
     }
 }
 
@@ -74,13 +73,16 @@ table.addEventListener('click', function(e){
         errors.classList.remove('d-none');
         errors.innerText = "That position is taken!"
     }else{
-        playerTurn(all_player);
+        
+        player = playerTurn(all_player);
         errors.classList.add('d-none');
     e.target.innerText = player.marker;
     e.target.classList.add('clicked');
-   
-    player.history.push(e.target.id) ;
+    
     playerturn.innerHTML = `${player.name} Turn!`
+
+    player.history.push(e.target.id) ;
+    
 
     if (checkWin(winArray, player)){
        
@@ -98,7 +100,8 @@ table.addEventListener('click', function(e){
 form.submitbtn.addEventListener('click', function(e){
     e.preventDefault();
     playGame();
-   
+    
+    
 });
 
 let Player = function (name, marker){
