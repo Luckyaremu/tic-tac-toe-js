@@ -21,6 +21,11 @@ td {
     padding: 20px;
 }
 
+.errors{
+    text-align: center;
+    color: red;
+}
+
 li {
     list-style: none;
     padding: 20px;

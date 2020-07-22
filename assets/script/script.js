@@ -14,6 +14,7 @@ let ai = false;
 
 
 let cellFull = false;
+let tie = false;
 let counter = 0;
 let winArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]];
 let playerCount = 0;
@@ -66,24 +67,36 @@ function playGame(){
         errors.innerText = "Maximum number of users reached!"
     }
 }
-
+function removeEvent(id){
+    if(id.innerText == "X" || id.innerText == "O"){
+        return true
+    }
+}
 table.addEventListener('click', function(e){
-    playerTurn(all_player);
-    playerturn.innerHTML = `${player.name} Turn!`
+   
+    if(e.target.classList.contains('clicked')){
+        errors.classList.remove('d-none');
+        errors.innerText = "That position is taken!"
+    }else{
+        playerTurn(all_player);
+        errors.classList.add('d-none');
     e.target.innerText = player.marker;
-  
+    e.target.classList.add('clicked');
+   
     player.history.push(e.target.id) ;
-    
+    playerturn.innerHTML = `${player.name} Turn!`
+
     if (checkWin(winArray, player)){
        
-        messages.innerText = `Wow! ${player.name} has won!`
-        cards.classList.remove('d-none');
-        content.classList.remove("d-none")
-        content.classList.add('bg-blur');
+        let message = `Wow! ${player.name} has won!`
+       spitResult(message);
         
-    }else if(cellFull == true){
-        messages.innerText = "Well, It looks like it is a tie!"
+    }else if(checkTie(cellFull)){
+        let message = "Well, It looks like it is a tie!"
+       spitResult(message)
     }
+    }
+    
 });
 
 form.submitbtn.addEventListener('click', function(e){
@@ -120,4 +133,18 @@ function checkWin(wins = winArray , player){
       
     });
     return won;
+}
+
+function checkTie(cellFull){
+    if(cellFull){
+        tie = true
+    }
+    return tie;
+}
+
+function spitResult(message){
+    messages.innerText = message;
+    cards.classList.remove('d-none');
+    content.classList.remove("d-none")
+    content.classList.add('bg-blur');
 }
