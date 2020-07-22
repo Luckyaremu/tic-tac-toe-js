@@ -67,11 +67,7 @@ function playGame(){
         errors.innerText = "Maximum number of users reached!"
     }
 }
-function removeEvent(id){
-    if(id.innerText == "X" || id.innerText == "O"){
-        return true
-    }
-}
+
 table.addEventListener('click', function(e){
    
     if(e.target.classList.contains('clicked')){
