@@ -13,15 +13,17 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url] 
-[![Forks][forks-shield]][forks-url] 
-[![Stargazers][stars-shield]][stars-url] 
-[![Issues][issues-shield]][issues-url] 
+
+
 ![Hireable](https://cdn.rawgit.com/hiendv/hireable/master/styles/default/yes.svg) 
 
 # Js Library
 
+<<<<<<< HEAD
 > In this project, we will be building a library. 
+=======
+> In this project, we built an online library. 
+>>>>>>> 772030b1fa24b66cceb8b7581fd019175829c162
 Users can: 
 - See list of Books
 - Delete books from the library.
