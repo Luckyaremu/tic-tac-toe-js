@@ -17,31 +17,28 @@
 
 ![Hireable](https://cdn.rawgit.com/hiendv/hireable/master/styles/default/yes.svg) 
 
-# Js Library
+# javascript Tic tac toe
 
-<<<<<<< HEAD
-> In this project, we will be building a library. 
-=======
-> In this project, we built an online library. 
->>>>>>> 772030b1fa24b66cceb8b7581fd019175829c162
-Users can: 
-- See list of Books
-- Delete books from the library.
-- Add books to the library.
-- Toggle the read status of the books in the library.
-- Uses localStorage to store data.
+> In this project, we built a game call tic tac toe. 
+Where Users can:
+
+- Introduce the name of the players.
+- The game is played on a grid that's 3 squares by 3 squares.
+- You are X, your friend is O. Players take turns putting their marks in empty squares.
+- The first player to get 3 of their marks in a row (up, down, across, or diagonally) is the winner.
+- When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie
 
 #  Screenshot
-![screenshot](./assets/images/Screenshot.png)
+![screenshot](./screenshot\Untitled.jpg)
+)
 
 # Live Demo
-[Live Demo Link](https://goofy-engelbart-637e70.netlify.app/)
+[Live Demo Link](https://angry-borg-90b651.netlify.app/)
 
 # Built With
 
 - JavaScript
 - HTML5
-- BOOTSTRAP
 - CSS3
 
 ### Usage
