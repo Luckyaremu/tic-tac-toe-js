@@ -1,10 +1,9 @@
 {
   "name": "tic-tac-toe",
   "version": "1.0.0",
-  "description": "<!--\r *** Thanks for checking out this README Template. If you have a suggestion that would\r *** make this better, please fork the repo and create a pull request or simply open\r *** an issue with the tag \"enhancement\".\r *** Thanks again! Now go create something AMAZING! :D\r -->",
+  "description": "tic tac toe",
   "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
@@ -13,6 +12,7 @@
     "stylelint-csstree-validator": "^1.8.0",
     "stylelint-scss": "^3.17.2"
   },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
