@@ -141,6 +141,7 @@ form.submitbtn.addEventListener('click', (e) => {
   playGame();
 });
 
+
 /* eslint-enable import/extensions */
 /* eslint-enable  no-unused-expressions */
 /* eslint-enable  prefer-destructuring */
