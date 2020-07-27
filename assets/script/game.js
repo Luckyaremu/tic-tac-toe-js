@@ -1,14 +1,13 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable   class-methods-use-this */
 /* eslint-disable   no-use-before-define */
+/* eslint-disable   import/extensions */
 
-
-
-
+import {
+  SetGamePlayers, counter, allplayer, ai,
+} from './players.js';
 
 let playerCount = 0;
-
-import {Player, SetGamePlayers, counter, allplayer, ai} from './players.js'
 
 let player = allplayer[0];
 
@@ -129,9 +128,6 @@ class PlayInPosition {
     }
   }
 }
-
-
-
 
 
 const form = document.querySelector('.name-form');
