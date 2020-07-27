@@ -1,20 +1,9 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable   class-methods-use-this */
-const table = document.querySelector('.table-container');
-const form = document.querySelector('.name-form');
-const errors = document.querySelector('.errors');
 const allplayer = [];
-const messages = document.querySelector('.messages');
-const cards = document.querySelector('.card');
-const content = document.querySelector('.content');
-const formInput = document.querySelector('.form-inputs');
-const playerlist = document.querySelector('.playerlist');
-const playerturn = document.querySelector('.playerturn');
-const aibtn = document.querySelector('.ai');
-const tds = document.querySelectorAll('td');
 let emptySpots = [];
 let ai = false;
-let marker = 'X';
+
 let players = '';
 let player = allplayer[0];
 
@@ -54,6 +43,9 @@ class SetGamePlayers {
   }
 
   setPlayers() {
+    let marker = 'X';
+    const aibtn = document.querySelector('.ai');
+    const form = document.querySelector('.name-form');
     if (counter <= 1) {
       if (counter === 0) {
         aibtn.classList.remove('d-none');
@@ -69,10 +61,13 @@ class SetGamePlayers {
     allplayer.push(players);
     const node = document.createElement('LI');
     node.innerText = `${players.name}`;
+    const playerlist = document.querySelector('.playerlist');
     playerlist.appendChild(node);
     playerlist.classList.remove('d-none');
     form.inputspace.value = '';
     if (counter >= 2) {
+      const playerturn = document.querySelector('.playerturn');
+      const formInput = document.querySelector('.form-inputs');
       formInput.classList.add('d-none');
       table.classList.remove('d-none');
       playerturn.innerHTML = `${allplayer[0].name} Turn!`;
@@ -88,6 +83,7 @@ class PlayInPosition {
   }
 
   validatePostion() {
+    const errors = document.querySelector('.errors');
     let res = false;
     if (this.e.target.classList.contains('clicked')) {
       errors.classList.remove('d-none');
@@ -125,6 +121,9 @@ class PlayInPosition {
   }
 
   spitResult(message) {
+    const content = document.querySelector('.content');
+    const cards = document.querySelector('.card');
+    const messages = document.querySelector('.messages');
     messages.innerText = message;
     cards.classList.remove('d-none');
     content.classList.remove('d-none');
@@ -146,6 +145,8 @@ class PlayInPosition {
 
 
   playIn() {
+    const tds = document.querySelectorAll('td');
+    const errors = document.querySelector('.errors');
     if (!this.validatePostion()) {
       player = this.playerTurn(allplayer);
 
@@ -163,7 +164,7 @@ class PlayInPosition {
 
       pos = parseInt(emptySpots[0], 10);
 
-
+      const playerturn = document.querySelector('.playerturn');
       playerturn.innerHTML = `${player.name} Turn!`;
       player.history.push(this.e.target.id);
 
@@ -181,15 +182,19 @@ class PlayInPosition {
   }
 }
 
-form.submitbtn.addEventListener('click', (e) => {
+class GameFlow{}
+
+
+const form = document.querySelector('.name-form');
+  form.submitbtn.addEventListener('click', (e) => {
   e.preventDefault();
   new SetGamePlayers(counter).setPlayers();
 });
-
+const table = document.querySelector('.table-container');
 table.addEventListener('click', (e) => {
   new PlayInPosition(e).playIn();
 });
-
+const aibtn = document.querySelector('.ai');
 aibtn.addEventListener('click', () => {
   form.inputspace.value = 'AI';
 });
