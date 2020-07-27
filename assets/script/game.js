@@ -2,55 +2,15 @@
 /* eslint-disable   class-methods-use-this */
 /* eslint-disable   no-use-before-define */
 
-class Player {
-  constructor(name, marker) {
-    this.name = name;
-    this.marker = marker;
-    this.history = [];
-  }
-}
 
 
-class SetGamePlayers {
-  constructor(counter) {
-    this.counter = counter;
-  }
 
-  setPlayers() {
-    let marker = 'X';
-    let players = '';
-    const aibtn = document.querySelector('.ai');
-    const form = document.querySelector('.name-form');
-    if (counter <= 1) {
-      if (counter === 0) {
-        aibtn.classList.remove('d-none');
-      } else {
-        marker = '0';
-        if (form.inputspace.value === 'AI') {
-          ai = true;
-        }
-      }
-      players = new Player(`${form.inputspace.value}`, marker);
-      counter += 1;
-    }
-    allplayer.push(players);
-    const node = document.createElement('LI');
-    node.innerText = `${players.name}`;
-    const playerlist = document.querySelector('.playerlist');
-    playerlist.appendChild(node);
-    playerlist.classList.remove('d-none');
-    form.inputspace.value = '';
-    if (counter >= 2) {
-      const table = document.querySelector('.table-container');
-      const playerturn = document.querySelector('.playerturn');
-      const formInput = document.querySelector('.form-inputs');
-      formInput.classList.add('d-none');
-      table.classList.remove('d-none');
-      playerturn.innerHTML = `${allplayer[0].name} Turn!`;
-    }
-    return allplayer;
-  }
-}
+
+let playerCount = 0;
+
+import {Player, SetGamePlayers, counter, allplayer, ai} from './players.js'
+
+let player = allplayer[0];
 
 
 class PlayInPosition {
@@ -171,11 +131,7 @@ class PlayInPosition {
 }
 
 
-const allplayer = [];
-let ai = false;
-let player = allplayer[0];
-let counter = 0;
-let playerCount = 0;
+
 
 
 const form = document.querySelector('.name-form');
