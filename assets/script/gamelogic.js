@@ -36,6 +36,7 @@ function gameLogic() {
       e.target.innerText = player.marker;
       this.gameBoard[e.target.id - 1] = player.marker;
       player.history.push(e.target.id);
+      e.target.classList.add('clicked');
     },
 
     checkWin(player) {
