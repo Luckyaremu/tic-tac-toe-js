@@ -1,64 +1,52 @@
-/* eslint-disable max-classes-per-file */
-/* eslint-disable   class-methods-use-this */
-/* eslint-disable   import/no-mutable-exports */
-class Player {
-  constructor(name, marker) {
-    this.name = name;
-    this.marker = marker;
-    this.history = [];
+const Player = (name, marker)=>{
+  return {
+      name,
+      marker,
+      history: []
   }
+  
 }
 
-let ai = false;
+//set players for the game
+function setPlayers(allplayers){
+  const form = document.querySelector('.name-form');
+  let marker;
+  allplayers.length <1? marker ="X" : marker = "0";
 
-let counter = 0;
-const allplayer = [];
+    //create player
+  allplayers.push(Player(form.inputspace.value, marker));
+    
+    form.inputspace.value = ''
+    
+    //display player
+    if(allplayers){
+      const node = document.createElement('LI');
+    
+      node.innerText = ``;
+      allplayers.forEach(function(val){
+        node.innerText = `${val.name}`;
+      })
+      //append players to screen
 
-class SetGamePlayers {
-  constructor(counter) {
-    this.counter = counter;
-  }
+      const playerlist = document.querySelector('.playerlist');
+      playerlist.appendChild(node);
+      playerlist.classList.remove('d-none');
 
-  setPlayers() {
-    let marker = 'X';
-    let players = '';
-    const aibtn = document.querySelector('.ai');
-    const form = document.querySelector('.name-form');
-    if (counter <= 1) {
-      if (counter === 0) {
-        aibtn.classList.remove('d-none');
-      } else {
-        marker = '0';
-        if (form.inputspace.value === 'AI') {
-          ai = true;
-        }
+      //empty the input field 
+
+      form.inputspace.value = '';
+
+      if (allplayers.length >= 2) {
+        const table = document.querySelector('.table-container');
+        const playerturn = document.querySelector('.playerturn');
+        const formInput = document.querySelector('.form-inputs');
+        formInput.classList.add('d-none');
+        table.classList.remove('d-none');
+        playerturn.innerHTML = `${allplayers[0].name} Turn!`;
       }
-      players = new Player(`${form.inputspace.value}`, marker);
-      counter += 1;
     }
-    allplayer.push(players);
-    const node = document.createElement('LI');
-    node.innerText = `${players.name}`;
-    const playerlist = document.querySelector('.playerlist');
-    playerlist.appendChild(node);
-    playerlist.classList.remove('d-none');
-    form.inputspace.value = '';
-    if (counter >= 2) {
-      const table = document.querySelector('.table-container');
-      const playerturn = document.querySelector('.playerturn');
-      const formInput = document.querySelector('.form-inputs');
-      formInput.classList.add('d-none');
-      table.classList.remove('d-none');
-      playerturn.innerHTML = `${allplayer[0].name} Turn!`;
-    }
-    return allplayer;
-  }
+    return allplayers;
 }
 
-export {
-  SetGamePlayers, counter, allplayer, ai,
-};
 
-/* eslint-enable max-classes-per-file */
-/* eslint-enable   class-methods-use-this */
-/* eslint-enable   import/no-mutable-exports */
+export { setPlayers}
