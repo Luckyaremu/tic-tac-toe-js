@@ -1,52 +1,50 @@
-const Player = (name, marker)=>{
-  return {
-      name,
-      marker,
-      history: []
-  }
-  
-}
+/* eslint-disable   no-unused-expressions */
+const Player = (name, marker) => ({
+  name,
+  marker,
+  history: [],
+});
 
-//set players for the game
-function setPlayers(allplayers){
+// set players for the game
+function setPlayers(allplayers) {
   const form = document.querySelector('.name-form');
   let marker;
-  allplayers.length <1? marker ="X" : marker = "0";
+  allplayers.length < 1 ? marker = 'X' : marker = '0';
 
-    //create player
+  // create player
   allplayers.push(Player(form.inputspace.value, marker));
-    
-    form.inputspace.value = ''
-    
-    //display player
-    if(allplayers){
-      const node = document.createElement('LI');
-    
-      node.innerText = ``;
-      allplayers.forEach(function(val){
-        node.innerText = `${val.name}`;
-      })
-      //append players to screen
 
-      const playerlist = document.querySelector('.playerlist');
-      playerlist.appendChild(node);
-      playerlist.classList.remove('d-none');
+  form.inputspace.value = '';
 
-      //empty the input field 
+  // display player
+  if (allplayers) {
+    const node = document.createElement('LI');
 
-      form.inputspace.value = '';
+    node.innerText = '';
+    allplayers.forEach((val) => {
+      node.innerText = `${val.name}`;
+    });
+    // append players to screen
 
-      if (allplayers.length >= 2) {
-        const table = document.querySelector('.table-container');
-        const playerturn = document.querySelector('.playerturn');
-        const formInput = document.querySelector('.form-inputs');
-        formInput.classList.add('d-none');
-        table.classList.remove('d-none');
-        playerturn.innerHTML = `${allplayers[0].name} Turn!`;
-      }
+    const playerlist = document.querySelector('.playerlist');
+    playerlist.appendChild(node);
+    playerlist.classList.remove('d-none');
+
+    // empty the input field
+
+    form.inputspace.value = '';
+
+    if (allplayers.length >= 2) {
+      const table = document.querySelector('.table-container');
+      const playerturn = document.querySelector('.playerturn');
+      const formInput = document.querySelector('.form-inputs');
+      formInput.classList.add('d-none');
+      table.classList.remove('d-none');
+      playerturn.innerHTML = `${allplayers[0].name} Turn!`;
     }
-    return allplayers;
+  }
+  return allplayers;
 }
 
 
-export { setPlayers}
+export default setPlayers;
