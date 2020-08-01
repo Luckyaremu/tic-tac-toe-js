@@ -1,6 +1,6 @@
 /* eslint-disable   import/extensions */
 import setPlayers from './players.js';
-import gameLogic from './gamelogic.js';
+import gameboard from './gamelogic.js';
 
 
 function gameFlow() {
@@ -29,24 +29,24 @@ function gameFlow() {
   let player;
   let cellFull = false;
   table.addEventListener('click', (e) => {
-    if (gameLogic().ValiditePosition(e)) {
+    if (gameboard().ValiditePosition(e)) {
       // set player and run game logic
 
-      player = gameLogic().playerTurn(allplayers, playerCount);
+      player = gameboard().playerTurn(allplayers, playerCount);
       playerCount += 1;
 
       if (playerCount === 9) {
         cellFull = true;
       }
 
-      gameLogic().playInto(player, e);
+      gameboard().playInto(player, e);
 
-      if (gameLogic().checkWin(player)) {
+      if (gameboard().checkWin(player)) {
         const message = `Wow! ${player.name} has won!`;
-        gameLogic().spitResult(message);
-      } else if (gameLogic().checkTie(cellFull)) {
+        gameboard().spitResult(message);
+      } else if (gameboard().checkTie(cellFull)) {
         const message = 'Well, It looks like it is a tie!';
-        gameLogic().spitResult(message);
+        gameboard().spitResult(message);
       }
     }
   });

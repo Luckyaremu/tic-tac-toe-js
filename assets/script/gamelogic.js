@@ -1,5 +1,5 @@
 /* eslint-disable   import/extensions */
-function gameLogic() {
+function gameboard() {
   return {
     winArray: [[1, 2, 3],
       [4, 5, 6],
@@ -78,4 +78,4 @@ function gameLogic() {
 }
 
 
-export default gameLogic;
+export default gameboard;
