@@ -1,2 +1,4 @@
 # .gitignore
 node_modules/
+assets/script/game3.js
+assets/script/gaming.js
